@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NDC by Clangudoo</title>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+    <audio id="backgroundMusic" autoplay loop volume="1">
+        <source src="images/diary_display/bg music/background-musics.MP3" type="audio/mp3">
+    </audio>
+    
+    <!--Navbar Section-->
+    <nav class="navbar">
+        <div class="navbar__container">
+            <div class="navbar__logo-container">
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWNoMGxrem9iaTR5azZvYmZ3eGJjMzNseDdidmtiNzI3dDlzNXB2ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Idx3Hj8UkVvkrOWNUN/giphy.gif" class="navbar__gif" alt="GIF" />
+                <a href="index.html" id="navbar__logo">4MYND</a>
+            </div>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="convert.html" class="navbar__links">Measurement Conversion</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="weightbody.html" class="navbar__links">Weight/Body Calculator</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="energynutri.html" class="navbar__links">Energy/Nutrition Calculator</a>
+                </li>
+                <li class="navbar__btn">
+                    <a href="#" class="button">INSTRUCTION</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Instruction Popup -->
+    <div id="instructionPopup" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <h2>Instructions for using this website</h2>
+            <div class="instruction-steps">
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <p>Click the button to go to the calculator you want to use</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <p>Input the necessary data</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <p>Click the compute button to get the result</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">4</span>
+                    <p>Click the reset button to clear the input fields</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">5</span>
+                    <p>There are some examples for you to follow</p>
+                </div>
+            </div>
+            <div class="love-message">
+            </div>
+        </div>
+    </div>
+
+    <!--Hero Section-->
+    <div class="hero">
+        <div class="hero__container">
+            <div class="hero__content">
+                <h1 class="hero__title">
+                    <span class="title-line">Nutrition Calculator</span>
+                </h1>
+                <p class="hero__subtitle">Health and Nutrition Measurements calculator just for you!</p>
+                <div class="hero__buttons">
+                    <a href="convert.html" class="hero__btn hero__btn--primary">
+                        <i class="btn-icon"></i>
+                        <span>Measurements</span>
+                    </a>
+                    <a href="weightbody.html" class="hero__btn hero__btn--secondary">
+                        <i class="btn-icon"></i>
+                        <span>Weight/Body</span>
+                    </a>
+                    <a href="energynutri.html" class="hero__btn hero__btn--tertiary">
+                        <i class="btn-icon"></i>
+                        <span>Energy/Nutrition</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero__image">
+                <img src="images/diary_display/pic1.svg" alt="Calculator illustration" class="hero__img"/>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="features__container">
+            <h2 class="features__title">Calculator Categories</h2>
+            <div class="features__grid">
+                <div class="feature-card">
+                    <div class="feature-card__icon"></div>
+                    <h3 class="feature-card__title">Measurement Conversion</h3>
+                    <p class="feature-card__description">Convert between different units of height, weight, and volume measurements</p>
+                    <a href="convert.html" class="feature-card__link">Explore Converters</a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card__icon"></div>
+                    <h3 class="feature-card__title">Weight & Body</h3>
+                    <p class="feature-card__description">Calculate BMI, ideal body weight, body frame, and other health metrics</p>
+                    <a href="weightbody.html" class="feature-card__link">Calculate Health Metrics</a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-card__icon"></div>
+                    <h3 class="feature-card__title">Energy & Nutrition</h3>
+                    <p class="feature-card__description">Determine total energy requirements and nutritional distribution</p>
+                    <a href="energynutri.html" class="feature-card__link">Plan Nutrition</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container">
+            <p class="footer__text">Made with love</p>
+        </div>
+    </footer>
+
+    <a href="https://github.com/Clangudoo/NDCalculator/" class="github-sticky-btn" target="_blank" rel="noopener" title="View on GitHub">
+        <svg class="github-sticky-btn__icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 0.198242C3.58 0.198242 0 3.77824 0 8.19824C0 11.6382 2.29 14.4382 5.47 15.4382C5.87 15.4982 6.02 15.2782 6.02 15.0882C6.02 14.9182 6.01 14.4882 6.01 13.8682C3.76 14.3382 3.29 12.9082 3.29 12.9082C2.94 12.0182 2.42 11.7882 2.42 11.7882C1.68 11.2982 2.48 11.3082 2.48 11.3082C3.3 11.3682 3.72 12.1582 3.72 12.1582C4.44 13.3882 5.62 13.0482 6.08 12.8382C6.14 12.3282 6.34 11.9782 6.56 11.7782C4.78 11.5782 2.92 10.8882 2.92 7.75824C2.92 6.82824 3.26 6.08824 3.82 5.48824C3.74 5.28824 3.44 4.45824 3.9 3.33824C3.9 3.33824 4.6 3.11824 6 4.07824C6.66 3.89824 7.36 3.80824 8.06 3.80824C8.76 3.80824 9.46 3.89824 10.12 4.07824C11.52 3.11824 12.22 3.33824 12.22 3.33824C12.68 4.45824 12.38 5.28824 12.3 5.48824C12.86 6.08824 13.2 6.82824 13.2 7.75824C13.2 10.8982 11.34 11.5782 9.56 11.7782C9.84 12.0182 10.08 12.4982 10.08 13.2182C10.08 14.2382 10.06 14.8682 10.06 15.0882C10.06 15.2782 10.21 15.5082 10.62 15.4382C13.8 14.4382 16.08 11.6382 16.08 8.19824C16.08 3.77824 12.52 0.198242 8 0.198242Z" fill="currentColor"/></svg>
+        GitHub
+    </a>
+
+    <script src="app.js"></script>
+</body>
+</html>

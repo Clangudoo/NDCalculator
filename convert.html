@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NDC by Clangudoo</title>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+    <audio id="backgroundMusic" autoplay loop volume="1">
+        <source src="images/diary_display/bg music/background-musics.MP3" type="audio/mp3">
+    </audio>
+    
+    <!--Navbar Section-->
+    <nav class="navbar">
+        <div class="navbar__container">
+            <div class="navbar__logo-container">
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWNoMGxrem9iaTR5azZvYmZ3eGJjMzNseDdidmtiNzI3dDlzNXB2ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Idx3Hj8UkVvkrOWNUN/giphy.gif" class="navbar__gif" alt="GIF" />
+                <a href="index.html" id="navbar__logo">4MYND</a>
+            </div>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="convert.html" class="navbar__links navbar__links--active">Measurement Conversion</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="weightbody.html" class="navbar__links">Weight/Body Calculator</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="energynutri.html" class="navbar__links">Energy/Nutrition Calculator</a>
+                </li>
+                <li class="navbar__btn">
+                    <a href="#" class="button">INSTRUCTION</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Instruction Popup -->
+    <div id="instructionPopup" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <h2>Instructions for using this website</h2>
+            <div class="instruction-steps">
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <p>Select the conversion type you need</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <p>Input the value you want to convert</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <p>Click the compute button to get all conversions</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">4</span>
+                    <p>Use the reset button to clear all fields</p>
+                </div>
+            </div>
+            <div class="love-message">
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="page-header__container">
+            <h1 class="page-header__title">Measurement Conversion</h1>
+        </div>
+    </div>
+
+    <!-- Calculator Section -->
+    <div class="calculator-page">
+        <div class="calculator-page__container">
+            
+            <!-- Height Converter -->
+            <div class="calculator-card">
+                <div class="calculator-card__header">
+                    <h3 class="calculator-card__title">Height Conversion</h3>
+                    <p class="calculator-card__description">Convert between feet, inches, centimeters, and meters</p>
+                </div>
+                <div class="calculator-card__body">
+                    <div class="input-group">
+                        <label for="con-feet" class="input-label">Height in FT:</label>
+                        <div class="input-example">Example: 5'2</div>
+                        <input type="text" id="con-feet" class="input-field" placeholder="5'6">
+                    </div>
+                    <div class="input-group">
+                        <label for="con-inch" class="input-label">Height in Inches:</label>
+                        <input type="text" id="con-inch" class="input-field" placeholder="66">
+                    </div>
+                    <div class="input-group">
+                        <label for="con-heightCM" class="input-label">Height in CM:</label>
+                        <input type="text" id="con-heightCM" class="input-field" placeholder="167.64">
+                    </div>
+                    <div class="input-group">
+                        <label for="con-meter" class="input-label">Height in Meters:</label>
+                        <input type="text" id="con-meter" class="input-field" placeholder="1.68">
+                    </div>
+                    <div class="button-group">
+                        <button id="compute-height" class="btn btn--primary">Compute</button>
+                        <button id="compute-height-reset" class="btn btn--secondary">Reset</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Weight Converter -->
+            <div class="calculator-card">
+                <div class="calculator-card__header">
+                    <h3 class="calculator-card__title">Weight Conversion</h3>
+                    <p class="calculator-card__description">Convert between grams, kilograms, and pounds</p>
+                </div>
+                <div class="calculator-card__body">
+                    <div class="input-group">
+                        <label for="con-g" class="input-label">Weight in G:</label>
+                        <input type="text" id="con-g" class="input-field" placeholder="60000">
+                    </div>
+                    <div class="input-group">
+                        <label for="con-kg" class="input-label">Weight in KG:</label>
+                        <input type="text" id="con-kg" class="input-field" placeholder="60">
+                    </div>
+                    <div class="input-group">
+                        <label for="con-lb" class="input-label">Weight in Pounds:</label>
+                        <input type="text" id="con-lb" class="input-field" placeholder="132">
+                    </div>
+                    <div class="button-group">
+                        <button id="compute-weight" class="btn btn--primary">Compute</button>
+                        <button id="reset-weight" class="btn btn--secondary">Reset</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Teaspoon Converter -->
+            <div class="calculator-card">
+                <div class="calculator-card__header">
+                    <h3 class="calculator-card__title">Teaspoon Conversion</h3>
+                    <p class="calculator-card__description">Convert teaspoons to other volume measurements</p>
+                </div>
+                <div class="calculator-card__body">
+                    <div class="input-group">
+                        <label for="con-tsp" class="input-label">Teaspoon:</label>
+                        <input type="text" id="con-tsp" class="input-field" placeholder="12">
+                    </div>
+                    <div class="input-group">
+                        <label for="tsp-tbsp" class="input-label">Tablespoon:</label>
+                        <input type="text" id="tsp-tbsp" class="input-field" readonly>
+                    </div>
+                    <div class="input-group">
+                        <label for="tsp-cup" class="input-label">Cup:</label>
+                        <input type="text" id="tsp-cup" class="input-field" readonly>
+                    </div>
+                    <div class="input-group">
+                        <label for="tsp-ounce" class="input-label">Ounces:</label>
+                        <input type="text" id="tsp-ounce" class="input-field" readonly>
+                    </div>
+                    <div class="input-group">
+                        <label for="tsp-ml" class="input-label">Milliliter:</label>
+                        <input type="text" id="tsp-ml" class="input-field" readonly>
+                    </div>
+                    <div class="input-group">
+                        <label for="tsp-l" class="input-label">Liter:</label>
+                        <input type="text" id="tsp-l" class="input-field" readonly>
+                    </div>
+                    <div class="button-group">
+                        <button id="compute-tsp" class="btn btn--primary">Compute</button>
+                        <button id="reset-tsp" class="btn btn--secondary">Reset</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tablespoon Converter -->
+            <div class="calculator-card">
+                <div class="calculator-card__header">
+                    <h3 class="calculator-card__title">Tablespoon Conversion</h3>
+                    <p class="calculator-card__description">Convert tablespoons to other volume measurements</p>
+                </div>
+                <div class="calculator-card__body">
+                    <div class="input-group">
+                        <label for="con-tbsp" class="input-label">Tablespoon:</label>
+                        <input type="text" id="con-tbsp" class="input-field" placeholder="4">
+                    </div>
+                    <div class="input-group">
+                        <label for="tbsp-tsp" class="input-label">Teaspoon:</label>
+                        <input type="text" id="tbsp-tsp" class="input-field" readonly>
+                    </div>
+                    <div class="input-group">
+                        <label for="tbsp-cup" class="input-label">Cup:</label>
+                        <input type="text" id="tbsp-cup" class="input-field" readonly>
+                    </div>
+                    <div class="input-group">
+                        <label for="tbsp-ounce" class="input-label">Ounces:</label>
+                        <input type="text" id="tbsp-ounce" class="input-field" readonly>
+                    </div>
+                    <div class="input-group">
+                        <label for="tbsp-ml" class="input-label">Milliliter:</label>
+                        <input type="text" id="tbsp-ml" class="input-field" readonly>
+                    </div>
+                    <div class="input-group">
+                        <label for="tbsp-l" class="input-label">Liter:</label>
+                        <input type="text" id="tbsp-l" class="input-field" readonly>
+                    </div>
+                    <div class="button-group">
+                        <button id="compute-tbsp" class="btn btn--primary">Compute</button>
+                        <button id="reset-tbsp" class="btn btn--secondary">Reset</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cup Converter -->
+            <div class="calculator-card">
+                <div class="calculator-card__header">
+                    <h3 class="calculator-card__title">Cup Conversion</h3>
+                    <p class="calculator-card__description">Convert cups to various volume measurements</p>
+                </div>
+                <div class="calculator-card__body">
+                    <div class="input-group">
+                        <label for="con-cup" class="input-label">Cup:</label>
+                        <input type="text" id="con-cup" class="input-field" placeholder="2">
+                    </div>
+                    <div class="input-group">
+                        <label for="cup-tsp" class="input-label">Teaspoon:</label>
+                        <input type="text" id="cup-tsp" class="input-field" readonly>
+                    </div>
+                    <div class="input-group">
+                        <label for="cup-tbsp" class="input-label">Tablespoon:</label>
+                        <input type="text" id="cup-tbsp" class="input-field" readonly>
+                    </div>
+                    <div class="input-group">
+                        <label for="cup-ml" class="input-label">Milliliter:</label>
+                        <input type="text" id="cup-ml" class="input-field" readonly>
+                    </div>
+                    <div class="input-group">
+                        <label for="cup-l" class="input-label">Liter:</label>
+                        <input type="text" id="cup-l" class="input-field" readonly>
+                    </div>
+                    <div class="input-group">
+                        <label for="cup-ounce" class="input-label">Ounces:</label>
+                        <input type="text" id="cup-ounce" class="input-field" readonly>
+                    </div>
+                    <div class="input-group">
+                        <label for="cup-gallon" class="input-label">Gallon:</label>
+                        <input type="text" id="cup-gallon" class="input-field" readonly>
+                    </div>
+                    <div class="input-group">
+                        <label for="cup-quart" class="input-label">Quart:</label>
+                        <input type="text" id="cup-quart" class="input-field" readonly>
+                    </div>
+                    <div class="input-group">
+                        <label for="cup-pint" class="input-label">Pint:</label>
+                        <input type="text" id="cup-pint" class="input-field" readonly>
+                    </div>
+                    <div class="button-group">
+                        <button id="compute-cup" class="btn btn--primary">Compute</button>
+                        <button id="reset-cup" class="btn btn--secondary">Reset</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container">
+            <p class="footer__text">Made with love</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

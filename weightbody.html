@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NDC by Clangudoo</title>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+    <audio id="backgroundMusic" autoplay loop volume="1">
+        <source src="images/diary_display/bg music/background-musics.MP3" type="audio/mp3">
+    </audio>
+    
+    <!--Navbar Section-->
+    <nav class="navbar">
+        <div class="navbar__container">
+            <div class="navbar__logo-container">
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWNoMGxrem9iaTR5azZvYmZ3eGJjMzNseDdidmtiNzI3dDlzNXB2ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Idx3Hj8UkVvkrOWNUN/giphy.gif" class="navbar__gif" alt="GIF" />
+                <a href="index.html" id="navbar__logo">4MYND</a>
+            </div>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="convert.html" class="navbar__links">Measurement Conversion</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="weightbody.html" class="navbar__links navbar__links--active">Weight/Body Calculator</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="energynutri.html" class="navbar__links">Energy/Nutrition Calculator</a>
+                </li>
+                <li class="navbar__btn">
+                    <a href="#" class="button">INSTRUCTION</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Instruction Popup -->
+    <div id="instructionPopup" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <h2>Instructions for using this website</h2>
+            <div class="instruction-steps">
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <p>Choose the body/weight calculator you need</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <p>Enter your measurements and information</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <p>Click compute to get your results</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">4</span>
+                    <p>Use reset to clear all fields</p>
+                </div>
+            </div>
+            <div class="love-message"></div>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="page-header__container">
+            <h1 class="page-header__title">Weight & Body Calculator</h1>
+            <p class="page-header__subtitle">Calculate BMI, ideal body weight, and health metrics</p>
+        </div>
+    </div>
+
+    <!-- Calculator Section -->
+    <div class="calculator-page">
+        <div class="calculator-page__container">
+            
+            <!-- DBW Original Calculator -->
+            <div class="calculator-card">
+                <div class="calculator-card__header">
+                    <h3 class="calculator-card__title">Desired Body Weight</h3>
+                    <p class="calculator-card__description">Calculate DBW for infants and children</p>
+                </div>
+                <div class="calculator-card__body">
+                    <div class="input-group">
+                        <label for="dbw-stages" class="input-label">Life Stages:</label>
+                        <select id="dbw-stages" class="select-field">
+                            <option value="infant1">Infant(1-6 mos)</option>
+                            <option value="infant2">Infant(7-12 mos)</option>
+                            <option value="child">Child(1-12 yrs)</option>
+                        </select>
+                    </div>
+                    <div class="input-note">
+                        <p><strong>Birth Weight Guidelines:</strong></p>
+                        <p>Premature: 2500 or 2700g | Full Term: 3000g</p>
+                    </div>
+                    <div class="input-group">
+                        <label for="dbw-birth" class="input-label">Birth Weight (g):</label>
+                        <input type="text" id="dbw-birth" class="input-field" placeholder="3000">
+                    </div>
+                    <div class="input-group">
+                        <label for="dbw-months" class="input-label">Infant Age (months):</label>
+                        <input type="text" id="dbw-months" class="input-field" placeholder="6">
+                    </div>
+                    <div class="input-group">
+                        <label for="dbw-years" class="input-label">Age (years):</label>
+                        <input type="text" id="dbw-years" class="input-field" placeholder="5">
+                    </div>
+                    <div class="button-group">
+                        <button id="compute-dbw-orig" class="btn btn--primary">Compute</button>
+                        <button id="reset-dbw-orig" class="btn btn--secondary">Reset</button>
+                    </div>
+                    <div class="result-group">
+                        <label for="dbw-orig" class="input-label">DBW:</label>
+                        <input type="text" id="dbw-orig" class="result-field" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DBW Tannhausser's Method -->
+            <div class="calculator-card">
+                <div class="calculator-card__header">
+                    <h3 class="calculator-card__title">Tannhausser's Method</h3>
+                    <p class="calculator-card__description">Desired Body Weight calculation</p>
+                </div>
+                <div class="calculator-card__body">
+                    <div class="input-group">
+                        <label for="dbw-height" class="input-label">Height (CM):</label>
+                        <input type="text" id="dbw-height" class="input-field" placeholder="170">
+                    </div>
+                    <div class="button-group">
+                        <button id="compute-dbw" class="btn btn--primary">Compute</button>
+                        <button id="reset-dbw" class="btn btn--secondary">Reset</button>
+                    </div>
+                    <div class="result-group">
+                        <label for="dbw-dbw" class="input-label">DBW:</label>
+                        <input type="text" id="dbw-dbw" class="result-field" readonly>
+                    </div>
+                    <div id="dbw-result" class="error-message"></div>
+                </div>
+            </div>
+
+            <!-- IBW Calculator -->
+            <div class="calculator-card">
+                <div class="calculator-card__header">
+                    <h3 class="calculator-card__title">Ideal Body Weight</h3>
+                    <p class="calculator-card__description">Calculate your ideal body weight</p>
+                </div>
+                <div class="calculator-card__body">
+                    <div class="input-group">
+                        <label for="ibw-ft" class="input-label">Height in FT:</label>
+                        <div class="input-example">Example: 5'6</div>
+                        <input type="text" id="ibw-ft" class="input-field" placeholder="5'6">
+                    </div>
+                    <div class="input-group">
+                        <label for="ibw-lb" class="input-label">Weight (lb):</label>
+                        <input type="text" id="ibw-lb" class="input-field" placeholder="150">
+                    </div>
+                    <div class="button-group">
+                        <button id="compute-ibw" class="btn btn--primary">Compute</button>
+                        <button id="reset-ibw" class="btn btn--secondary">Reset</button>
+                    </div>
+                    <div class="result-group">
+                        <label for="ibw-ibw" class="input-label">IBW:</label>
+                        <input type="text" id="ibw-ibw" class="result-field" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Current Weight -->
+            <div class="calculator-card">
+                <div class="calculator-card__header">
+                    <h3 class="calculator-card__title">Current Weight Range</h3>
+                    <p class="calculator-card__description">Calculate healthy weight range limits</p>
+                </div>
+                <div class="calculator-card__body">
+                    <div class="input-note">
+                        <p>Enter weight in either kg or lb (not both)</p>
+                    </div>
+                    <div class="input-group">
+                        <label for="cw-kg" class="input-label">Weight (kg):</label>
+                        <input type="text" id="cw-kg" class="input-field" placeholder="70">
+                    </div>
+                    <div class="input-group">
+                        <label for="cw-lb" class="input-label">Weight (lb):</label>
+                        <input type="text" id="cw-lb" class="input-field" placeholder="154">
+                    </div>
+                    <div class="button-group">
+                        <button id="compute-cw" class="btn btn--primary">Compute</button>
+                        <button id="reset-cw" class="btn btn--secondary">Reset</button>
+                    </div>
+                    <div class="result-group">
+                        <label for="cw-ll" class="input-label">Lower Limit:</label>
+                        <input type="text" id="cw-ll" class="result-field" readonly>
+                    </div>
+                    <div class="result-group">
+                        <label for="cw-ul" class="input-label">Upper Limit:</label>
+                        <input type="text" id="cw-ul" class="result-field" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BMI Calculator -->
+            <div class="calculator-card">
+                <div class="calculator-card__header">
+                    <h3 class="calculator-card__title">BMI Calculator</h3>
+                    <p class="calculator-card__description">Calculate Body Mass Index and health status</p>
+                </div>
+                <div class="calculator-card__body">
+                    <div class="input-group">
+                        <label for="bmi-weight" class="input-label">Weight (kg):</label>
+                        <input type="text" id="bmi-weight" class="input-field" placeholder="70">
+                    </div>
+                    <div class="input-group">
+                        <label for="bmi-height" class="input-label">Height (meters):</label>
+                        <input type="text" id="bmi-height" class="input-field" placeholder="1.75">
+                    </div>
+                    <div class="button-group">
+                        <button id="compute-bmi" class="btn btn--primary">Compute</button>
+                        <button id="reset-bmi" class="btn btn--secondary">Reset</button>
+                    </div>
+                    <div class="result-group">
+                        <label for="bmi-result" class="input-label">BMI:</label>
+                        <input type="text" id="bmi-result" class="result-field" readonly>
+                    </div>
+                    <div class="result-group">
+                        <label for="bmi-status" class="input-label">Status:</label>
+                        <input type="text" id="bmi-status" class="result-field" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Body Frame Calculator -->
+            <div class="calculator-card">
+                <div class="calculator-card__header">
+                    <h3 class="calculator-card__title">Body Frame Calculator</h3>
+                    <p class="calculator-card__description">Determine your body frame size</p>
+                </div>
+                <div class="calculator-card__body">
+                    <div class="input-group">
+                        <label for="bodyframe-height" class="input-label">Height (cm):</label>
+                        <input type="text" id="bodyframe-height" class="input-field" placeholder="170">
+                    </div>
+                    <div class="input-group">
+                        <label for="bodyframe-wrist" class="input-label">Wrist (cm):</label>
+                        <input type="text" id="bodyframe-wrist" class="input-field" placeholder="16">
+                    </div>
+                    <div class="input-group">
+                        <label for="body-frame-gender" class="input-label">Gender:</label>
+                        <select id="body-frame-gender" class="select-field">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                    <div class="button-group">
+                        <button id="compute-body-frame" class="btn btn--primary">Compute</button>
+                        <button id="reset-body-frame" class="btn btn--secondary">Reset</button>
+                    </div>
+                    <div class="result-group">
+                        <label for="body-frame-result" class="input-label">Body Frame:</label>
+                        <input type="text" id="body-frame-result" class="result-field" readonly>
+                    </div>
+                    <div class="result-group">
+                        <label for="body-frame-status" class="input-label">Status:</label>
+                        <input type="text" id="body-frame-status" class="result-field" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Waist-Hip Ratio -->
+            <div class="calculator-card">
+                <div class="calculator-card__header">
+                    <h3 class="calculator-card__title">Waist-Hip Ratio</h3>
+                    <p class="calculator-card__description">Calculate waist-to-hip ratio and health risk</p>
+                </div>
+                <div class="calculator-card__body">
+                    <div class="input-group">
+                        <label for="waist-hip-waist" class="input-label">Waist (cm):</label>
+                        <input type="text" id="waist-hip-waist" class="input-field" placeholder="80">
+                    </div>
+                    <div class="input-group">
+                        <label for="waist-hip-hip" class="input-label">Hip (cm):</label>
+                        <input type="text" id="waist-hip-hip" class="input-field" placeholder="95">
+                    </div>
+                    <div class="input-group">
+                        <label for="waist-hip-gender" class="input-label">Gender:</label>
+                        <select id="waist-hip-gender" class="select-field">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="waist-hip-race" class="input-label">Race:</label>
+                        <select id="waist-hip-race" class="select-field">
+                            <option value="europid">Europid</option>
+                            <option value="eastern-mediterranean">Eastern Mediterranean</option>
+                            <option value="mid-eastern">Mid-Eastern</option>
+                            <option value="sub-saharan-african">Sub-Saharan African</option>
+                            <option value="south-asian">South Asian</option>
+                            <option value="chinese">Chinese</option>
+                            <option value="japanese">Japanese</option>
+                            <option value="asian">Asian</option>
+                            <option value="not-necessary">Not Necessary</option>
+                        </select>
+                    </div>
+                    <div class="button-group">
+                        <button id="compute-waist-hip" class="btn btn--primary">Compute</button>
+                        <button id="reset-waist-hip" class="btn btn--secondary">Reset</button>
+                    </div>
+                    <div class="result-group">
+                        <label for="waist-hip-result" class="input-label">Waist-Hip Ratio:</label>
+                        <input type="text" id="waist-hip-result" class="result-field" readonly>
+                    </div>
+                    <div class="result-group">
+                        <label for="waist-hip-status" class="input-label">Status:</label>
+                        <input type="text" id="waist-hip-status" class="result-field" readonly>
+                    </div>
+                    <div class="result-group">
+                        <label for="apple-shape" class="input-label">Apple Shaped:</label>
+                        <input type="text" id="apple-shape" class="result-field" readonly>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Weight Interpretation -->
+            <div class="calculator-card">
+                <div class="calculator-card__header">
+                    <h3 class="calculator-card__title">Weight Interpretation</h3>
+                    <p class="calculator-card__description">Interpret your current weight status</p>
+                </div>
+                <div class="calculator-card__body">
+                    <div class="input-group">
+                        <label for="weight-wi" class="input-label">Weight (kg):</label>
+                        <input type="text" id="weight-wi" class="input-field" placeholder="70">
+                    </div>
+                    <div class="input-group">
+                        <label for="dbw-wi" class="input-label">DBW (kg):</label>
+                        <input type="text" id="dbw-wi" class="input-field" placeholder="65">
+                    </div>
+                    <div class="button-group">
+                        <button id="compute-wi" class="btn btn--primary">Compute</button>
+                        <button id="reset-wi" class="btn btn--secondary">Reset</button>
+                    </div>
+                    <div class="result-group">
+                        <label for="weight-interp" class="input-label">Weight Interpretation:</label>
+                        <input type="text" id="weight-interp" class="result-field" readonly>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container">
+            <p class="footer__text">Made with love</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

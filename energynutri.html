@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NDC by Clangudoo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <audio id="backgroundMusic" autoplay loop volume="1">
+    <source src="images/diary_display/bg music/background-musics.MP3" type="audio/mp3" />
+  </audio>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar__container">
+      <div class="navbar__logo-container">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWNoMGxrem9iaTR5azZvYmZ3eGJjMzNseDdidmtiNzI3dDlzNXB2ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Idx3Hj8UkVvkrOWNUN/giphy.gif" class="navbar__gif" alt="GIF" />
+        <a href="index.html" id="navbar__logo">4MYND</a>
+      </div>
+      <div class="navbar__toggle" id="mobile-menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </div>
+      <ul class="navbar__menu">
+        <li class="navbar__item"><a href="convert.html" class="navbar__links">Measurement Conversion</a></li>
+        <li class="navbar__item"><a href="weightbody.html" class="navbar__links">Weight/Body Calculator</a></li>
+        <li class="navbar__item"><a href="energynutri.html" class="navbar__links navbar__links--active">Energy/Nutrition Calculator</a></li>
+        <li class="navbar__btn"><a href="#" class="button">INSTRUCTION</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Instructions -->
+  <div id="instructionPopup" class="popup">
+    <div class="popup-content">
+      <span class="close">&times;</span>
+      <h2>Instructions for using this website</h2>
+      <div class="instruction-steps">
+        <div class="step"><span class="step-number">1</span><p>Choose the energy/nutrition calculator you need</p></div>
+        <div class="step"><span class="step-number">2</span><p>Enter your personal information and requirements</p></div>
+        <div class="step"><span class="step-number">3</span><p>Click compute to get your nutritional needs</p></div>
+        <div class="step"><span class="step-number">4</span><p>Use reset to start over with new values</p></div>
+      </div>
+      <div class="love-message">
+      </div>
+    </div>
+  </div>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="page-header__container">
+      <h1 class="page-header__title">Energy & Nutrition Calculator</h1>
+      <p class="page-header__subtitle">Calculate your total energy requirements and nutritional distribution</p>
+    </div>
+  </div>
+
+  <!-- Calculator Section -->
+  <div class="calculator-page">
+    <div class="calculator-page__container">
+
+      <!-- TER Section (wrapped in div#cal__en for JS to work properly) -->
+      <div id="cal__en">
+        <!-- TER Calculator -->
+        <div class="calculator-card">
+          <div class="calculator-card__header">
+            <h3 class="calculator-card__title">TER Calculator</h3>
+            <p class="calculator-card__description">Calculate Total Energy Requirements based on age and activity</p>
+          </div>
+          <div class="calculator-card__body">
+            <div class="input-group">
+              <label for="ter-stages" class="input-label">Life Stages:</label>
+              <select id="ter-stages" class="select-field">
+                <option value="infant1">Infant(0-6 mos)</option>
+                <option value="infant2">Infant(7-12 mos)</option>
+                <option value="child">Child(2-12 yrs)</option>
+                <option value="adolescent">Adolescent(13-17 yrs)</option>
+                <option value="adult">Adult</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label for="ter-intensity" class="input-label">Intensity:</label>
+              <select id="ter-intensity" class="select-field">
+                <option value="sedentary">Sedentary (work)</option>
+                <option value="light">Light (work)</option>
+                <option value="moderate">Moderate (work)</option>
+                <option value="vigorous">Vigorous (work)</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label for="ter-dbw" class="input-label">DBW (kg):</label>
+              <input type="text" id="ter-dbw" class="input-field" placeholder="65">
+            </div>
+            <div class="input-group">
+              <label for="ter-age" class="input-label">Age (years):</label>
+              <input type="text" id="ter-age" class="input-field" placeholder="25">
+            </div>
+            <div class="button-group">
+              <button id="compute-ter" class="btn btn--primary">Compute</button>
+              <button id="reset-ter" class="btn btn--secondary">Reset</button>
+            </div>
+            <div class="result-group">
+              <label for="ter-ter" class="input-label">TER:</label>
+              <input type="text" id="ter-ter" class="result-field" readonly>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nutritional Distribution -->
+      <div class="calculator-card calculator-card--wide">
+        <div class="calculator-card__header">
+          <h3 class="calculator-card__title">Nutritional Distribution</h3>
+          <p class="calculator-card__description">Calculate macronutrient distribution and daily requirements</p>
+        </div>
+        <div class="calculator-card__body">
+          <div class="input-row">
+            <div class="input-group">
+              <label for="nd-dbw" class="input-label">DBW:</label>
+              <input type="text" id="nd-dbw" class="input-field" placeholder="65">
+            </div>
+            <div class="input-group">
+              <label for="nd-ter" class="input-label">TER:</label>
+              <input type="text" id="nd-ter" class="input-field" placeholder="2000">
+            </div>
+          </div>
+
+          <div class="macronutrient-section">
+            <h4 class="section-title">Macronutrient Percentages</h4>
+            <div class="input-row">
+              <div class="input-group">
+                <label for="nd-cho" class="input-label">Carbohydrates (%):</label>
+                <input type="text" id="nd-cho" class="input-field" placeholder="60">
+              </div>
+              <div class="input-group">
+                <label for="nd-chon" class="input-label">Protein (%):</label>
+                <input type="text" id="nd-chon" class="input-field" placeholder="15">
+              </div>
+              <div class="input-group">
+                <label for="nd-fat" class="input-label">Fats (%):</label>
+                <input type="text" id="nd-fat" class="input-field" placeholder="25">
+              </div>
+            </div>
+          </div>
+
+          <div class="button-group">
+            <button id="compute-nd" class="btn btn--primary">Compute</button>
+            <button id="reset-nd" class="btn btn--secondary">Reset</button>
+          </div>
+
+          <!-- Results -->
+          <div class="results-section">
+            <h4 class="section-title">Nutritional Distribution Results</h4>
+            <div class="result-grid">
+              <div class="result-card">
+                <h5 class="result-card__title">Carbohydrates</h5>
+                <div class="result-group"><label for="nd-c1" class="input-label">Calories:</label><input type="text" id="nd-c1" class="result-field" readonly></div>
+                <div class="result-group"><label for="nd-c2" class="input-label">Grams:</label><input type="text" id="nd-c2" class="result-field" readonly></div>
+              </div>
+              <div class="result-card">
+                <h5 class="result-card__title">Protein</h5>
+                <div class="result-group"><label for="nd-p1" class="input-label">Calories:</label><input type="text" id="nd-p1" class="result-field" readonly></div>
+                <div class="result-group"><label for="nd-p2" class="input-label">Grams:</label><input type="text" id="nd-p2" class="result-field" readonly></div>
+              </div>
+              <div class="result-card">
+                <h5 class="result-card__title">Fats</h5>
+                <div class="result-group"><label for="nd-f1" class="input-label">Calories:</label><input type="text" id="nd-f1" class="result-field" readonly></div>
+                <div class="result-group"><label for="nd-f2" class="input-label">Grams:</label><input type="text" id="nd-f2" class="result-field" readonly></div>
+              </div>
+            </div>
+
+            <div class="summary-results">
+              <div class="result-group"><label for="nd-kcal" class="input-label">Total Kcal/day:</label><input type="text" id="nd-kcal" class="result-field result-field--highlight" readonly></div>
+              <div class="result-group"><label for="nd-grams" class="input-label">Total Grams/day:</label><input type="text" id="nd-grams" class="result-field result-field--highlight" readonly></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__container">
+      <p class="footer__text">Made with love</p>
+    </div>
+  </footer>
+
+  <!-- ✅ JavaScript moved to end for proper element access -->
+  <script src="app.js"></script>
+</body>
+</html>
